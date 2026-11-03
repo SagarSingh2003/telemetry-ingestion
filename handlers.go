@@ -11,7 +11,6 @@ func HandleLogsIngestion(logger *zap.Logger) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		msg := []byte("hello world")
 		msg = append(msg, '\n')
-		panic("panic man!")
 		_, err := w.Write(msg)
 		if err != nil {
 			logger.Error("error occured while writing", zap.Error(err))

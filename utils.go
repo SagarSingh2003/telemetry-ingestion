@@ -33,5 +33,6 @@ func recoverPanic(logger *zap.Logger, w http.ResponseWriter) {
 			zap.String("panic_info", fmt.Sprintf("%v", r)),
 			zap.String("stack_trace", string(debug.Stack())),
 		)
+		w.WriteHeader(500)
 	}
 }
